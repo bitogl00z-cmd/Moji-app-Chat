@@ -1,10 +1,38 @@
-node_modules/
-.env
-!.env.example
-jsconfig.json
+# --- OS & IDE Files ---
+.DS_Store
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# REACT
-# Logs
+# --- Dependency Folders ---
+# Thêm dấu / ở đầu hoặc cuối để Git hiểu là thư mục ở bất kỳ cấp nào
+node_modules/
+**/node_modules/
+
+# --- Environment Files ---
+.env
+.env.local
+.env.*.local
+**/.env
+**/.env.production
+**/.env.development
+# Giữ lại file mẫu để người khác biết cấu hình
+!.env.example
+!**/ .env.example
+
+# --- Build & Output ---
+dist/
+dist-ssr/
+build/
+out/
+*.local
+
+# --- Logs ---
 logs
 *.log
 npm-debug.log*
@@ -13,18 +41,5 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# --- Project Specific ---
+jsconfig.json
