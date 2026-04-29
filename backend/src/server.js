@@ -22,7 +22,15 @@ const PORT = process.env.PORT || 5001;
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+app.use(
+  cors({
+    origin: [
+      "https://moji-app-chat-front-end.vercel.app",
+      "http://localhost:5173",
+    ],
+    credentials: true,
+  }),
+);
 
 // CLOUDINARY Configuration
 cloudinary.config({
@@ -32,7 +40,9 @@ cloudinary.config({
 });
 
 // swagger
-const swaggerDocument = JSON.parse(fs.readFileSync("./src/swagger.json", "utf8"));
+const swaggerDocument = JSON.parse(
+  fs.readFileSync("./src/swagger.json", "utf8"),
+);
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
